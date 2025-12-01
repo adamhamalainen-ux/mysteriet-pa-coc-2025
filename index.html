@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Julkalender</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="calendar-wrapper">
+    <!-- Själva kalendern med 24 klickbara rutor -->
+    <div class="calendar-grid">
+      <div class="door" data-video="film1.mp4">1</div>
+      <div class="door" data-video="film2.mp4">2</div>
+      <div class="door" data-video="film3.mp4">3</div>
+      <div class="door" data-video="film4.mp4">4</div>
+      <div class="door" data-video="film5.mp4">5</div>
+      <div class="door" data-video="film6.mp4">6</div>
+      <div class="door" data-video="film7.mp4">7</div>
+      <div class="door" data-video="film8.mp4">8</div>
+      <div class="door" data-video="film9.mp4">9</div>
+      <div class="door" data-video="film10.mp4">10</div>
+      <div class="door" data-video="film11.mp4">11</div>
+      <div class="door" data-video="film12.mp4">12</div>
+      <div class="door" data-video="film13.mp4">13</div>
+      <div class="door" data-video="film14.mp4">14</div>
+      <div class="door" data-video="film15.mp4">15</div>
+      <div class="door" data-video="film16.mp4">16</div>
+      <div class="door" data-video="film17.mp4">17</div>
+      <div class="door" data-video="film18.mp4">18</div>
+      <div class="door" data-video="film19.mp4">19</div>
+      <div class="door" data-video="film20.mp4">20</div>
+      <div class="door" data-video="film21.mp4">21</div>
+      <div class="door" data-video="film22.mp4">22</div>
+      <div class="door" data-video="film23.mp4">23</div>
+      <div class="door" data-video="film24.mp4">24</div>
+    </div>
+  </div>
+
+  <!-- Modal / pop-up för videon -->
+  <div class="modal hidden" id="videoModal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">×</button>
+      <video id="modalVideo" controls></video>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
