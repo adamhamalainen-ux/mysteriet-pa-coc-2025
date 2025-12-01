@@ -1,0 +1,123 @@
+/* Baslayout */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #111;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Kalenderns bakgrundsbild */
+.calendar-wrapper {
+  position: relative;
+  width: 1200px;          /* justera vid behov */
+  aspect-ratio: 16 / 9;   /* behåll 16:9 */
+  background-image: url("bakgrund.jpg");  /* viktigt: filen måste heta bakgrund.jpg och ligga i samma mapp */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* 6 x 4 rutor = 24 luckor */
+.calendar-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+/* Luckorna */
+.door {
+  position: relative;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);  /* osynliga rutor ovanpå bilden */
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* För test: vill du se rutorna tydligt, ändra till t.ex.:
+.door {
+  background-color: rgba(0,0,0,0.3);
+}
+*/
+
+/* Hover för känsla */
+.door:hover {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5) inset;
+}
+
+/* När en lucka "öppnas" (zoomas) */
+.door.zoomed {
+  transform: scale(1.4);
+  z-index: 5;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Göm luckan helt medan videon visas */
+.door.hidden-door {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Modal (videofönster) */
+.modal.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+/* Mörkläggning bakom videon */
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+/* Själva videorutan */
+.modal-content {
+  position: relative;
+  background: #000;
+  padding: 10px;
+  z-index: 10;
+  max-width: 80vw;
+  max-height: 80vh;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+  border-radius: 8px;
+}
+
+.modal-content video {
+  width: 100%;
+  height: auto;
+}
+
+/* Stäng-knapp */
+.close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  border: none;
+  background: #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  cursor: pointer;
+}
