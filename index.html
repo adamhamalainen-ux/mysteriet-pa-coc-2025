@@ -21,9 +21,11 @@
 <div class="door" data-video="film10.mp4">10</div>
 <div class="door" data-video="film11.mp4">11</div>
 <div class="door" data-video="film12.mp4">12</div>
-<!-- Lucka 13: formulär istället för video -->
+ 
+    <!-- Lucka 13: formulär istället för video -->
 <div class="door" id="door-13">13</div>
-<div class="door" data-video="film14.mp4">14</div>
+ 
+    <div class="door" data-video="film14.mp4">14</div>
 <div class="door" data-video="film15.mp4">15</div>
 <div class="door" data-video="film16.mp4">16</div>
 <div class="door" data-video="film17.mp4">17</div>
@@ -36,6 +38,7 @@
 <div class="door" data-video="film24.mp4">24</div>
 </div>
 </div>
+ 
 <!-- Modal / pop-up för videon -->
 <div class="modal hidden" id="videoModal">
 <div class="modal-backdrop"></div>
@@ -45,26 +48,38 @@
 </div>
 </div>
  
-  <!-- Modal / pop-up för lucka 13 formulär -->
+<!-- Modal / pop-up för lucka 13 formulär -->
 <div class="modal hidden" id="formModal13">
 <div class="modal-backdrop"></div>
 <div class="modal-content">
 <button class="close-btn" id="closeForm13">×</button>
 <h2>Lucka 13 🎁</h2>
 <p>Gissa vem det är!</p>
-<form id="guessForm13" style="max-width:400px;">
-<label for="guess13">Vem tror du det är?</label><br>
-<input type="text" id="guess13" name="guess" required style="width:100%; margin-bottom:10px;">
-<label for="name13">Ditt namn:</label><br>
-<input type="text" id="name13" name="name" required style="width:100%; margin-bottom:15px;">
-<button type="submit">Skicka in</button>
+ 
+    <!-- ⭐ FORMULAR MED FORMSPREE ⭐ -->
+<form id="guessForm13" 
+          action="https://formspree.io/f/meoypgnj" 
+          method="POST" 
+          style="max-width:400px;">
+ 
+      <label for="guess13">Vem tror du det är?</label><br>
+<input type="text" id="guess13" name="guess" required 
+             style="width:100%; margin-bottom:10px;">
+ 
+      <label for="name13">Ditt namn:</label><br>
+<input type="text" id="name13" name="name" required 
+             style="width:100%; margin-bottom:15px;">
+ 
+      <button type="submit">Skicka in</button>
 </form>
-<p id="resultMessage13" style="margin-top:15px; font-weight:bold;"></p>
+ 
+    <p id="resultMessage13" style="margin-top:15px; font-weight:bold;"></p>
 </div>
 </div>
+ 
 <script src="script.js"></script>
  
-  <script>
+<script>
   // Lucka 13 - öppna formulärmodal
   const door13 = document.getElementById("door-13");
   const formModal13 = document.getElementById("formModal13");
@@ -78,14 +93,12 @@
     formModal13.classList.add("hidden");
   });
  
-  // Skicka in formulär
-  document.getElementById("guessForm13").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const guess = document.getElementById("guess13").value;
-    const name = document.getElementById("name13").value;
+  // Tackmeddelande efter Formspree-submit
+  document.getElementById("guessForm13").addEventListener("submit", function() {
     document.getElementById("resultMessage13").textContent =
-      "Tack " + name + "! Din gissning \"" + guess + "\" har registrerats.";
+      "Tack! Din gissning har skickats in.";
   });
 </script>
+ 
 </body>
 </html>
